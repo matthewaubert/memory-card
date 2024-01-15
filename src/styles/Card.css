@@ -2,6 +2,7 @@ div.card {
   background-color: #ddd;
   border: 0.9rem solid gold;
   border-radius: 12px;
+  cursor: pointer;
   padding: 0.6rem;
   aspect-ratio: 2.5 / 3.5;
 

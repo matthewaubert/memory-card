@@ -56,9 +56,10 @@ class Pokemon {
   // output: name formatted for app
   static #FormatName(name) {
     const edgeCases = {
+      'farfetchd': 'Farfetch\'d',
+      'mr-mime': 'Mr. Mime',
       'nidoran-f': 'Nidoran♀',
       'nidoran-m': 'Nidoran♂',
-      'mr-mime': 'Mr. Mime',
     };
 
     // if name is an edge case: return mapped value

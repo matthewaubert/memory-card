@@ -4,8 +4,18 @@
   padding: 2rem 4rem;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+button.logo {
+  background-color: transparent;
+}
+
 main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10.6rem, 1fr));
   gap: 1.2rem;
+  margin: 1.2rem 0;
 }
