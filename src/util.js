@@ -10,10 +10,21 @@ export function getRandInts(n, min, max) {
     let int;
     do {
       int = getRandInt(min, max);
-    } while(ints.includes(int));
+    } while (ints.includes(int));
 
     ints.push(int);
   }
 
   return ints;
+}
+
+// return shallow copy of input array with elements randomly shuffled
+export function shuffleArray(array) {
+  const shuffledArr = [...array];
+  for (let i = shuffledArr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArr[i], shuffledArr[j]] = [shuffledArr[j], shuffledArr[i]];
+  }
+
+  return shuffledArr;
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Scoreboard from './components/Scoreboard.jsx';
 import Card from './components/Card.jsx';
 import getPokemonDataset from './pokemon-data.js';
-import { getRandInts } from './util.js';
+import { getRandInts, shuffleArray } from './util.js';
 import pokemonLogo from './assets/pokemon-logo.svg';
 import './App.css';
 
@@ -38,6 +38,7 @@ export default function App() {
       // add name to selections array
       setSelections([...selections, name]);
       incrementScore();
+      // shuffle cards on re-render
     }
   }
 
@@ -70,7 +71,7 @@ export default function App() {
       </header>
       <main>
         {/* Cards (one per pokemon in dataset) */}
-        {dataset.map((data) => (
+        {shuffleArray(dataset).map((data) => (
           <Card key={data.id} data={data} handleSelection={handleSelection} />
         ))}
       </main>
