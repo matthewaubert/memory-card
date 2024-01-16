@@ -1,44 +1,61 @@
 import { useEffect, useState } from 'react';
 import Scoreboard from './components/Scoreboard.jsx';
 import Card from './components/Card.jsx';
+import GameOver from './components/GameOver.jsx';
 import getPokemonDataset from './pokemon-data.js';
 import { getRandInts, shuffleArray } from './util.js';
 import pokemonLogo from './assets/pokemon-logo.svg';
 import './App.css';
 
-// get 12 random ints btw 1 and 151 (inclusive)
-const numCards = 12;
-const ids = getRandInts(numCards, 1, 152);
+const numCards = 12; // number of cards to display
+const pokemonNums = [1, 151]; // range of pokemon id nums to fetch (inclusive)
 
 export default function App() {
   const [dataset, setDataset] = useState([]);
   const [selections, setSelections] = useState([]);
   const [score, setScore] = useState(0);
   const [hiScore, setHiScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+  const [playAgain, setPlayAgain] = useState(0); // trigger fetch new pokemon data
 
   // fetch array of pokemon data and store in state
   useEffect(() => {
     (async () => {
+      // get {numCards} random ints btw pokemonNums (inclusive)
+      const ids = getRandInts(numCards, pokemonNums[0], pokemonNums[1] + 1);
       const pokemonDataset = await getPokemonDataset(ids);
       console.log(pokemonDataset);
       setDataset(pokemonDataset);
     })();
-  }, []);
+  }, [playAgain]);
 
-  // clear selections array
+  // reset dataset, selections, score, GameOver;
+  // trigger fetch new pokemon data
   function startGame() {
+    setDataset([]);
     setSelections([]);
+    setScore(0);
+    setGameOver(false);
+    setPlayAgain(playAgain + 1);
   }
 
   // handle when user selects Card
   function handleSelection(name) {
-    // if name already in selections: game over
-    if (selections.includes(name)) endGame();
+    // if game over: do nothing
+    if (gameOver) return;
+
+    // if name already in selections: lose
+    if (selections.includes(name)) {
+      endGame();
+      return;
+    }
+
+    incrementScore();
+    // if player has selected all 12 cards: win
+    if (score === numCards - 1) endGame();
     else {
-      // add name to selections array
-      setSelections([...selections, name]);
-      incrementScore();
-      // shuffle cards on re-render
+      shuffleCards();
+      setSelections([...selections, name]); // add name to selections
     }
   }
 
@@ -51,11 +68,14 @@ export default function App() {
     if (newScore > hiScore) setHiScore(newScore);
   }
 
-  // reset score to 0; start new game
+  // shuffle dataSet array in order to shuffle cards
+  function shuffleCards() {
+    setDataset(shuffleArray(dataset));
+  }
+
   function endGame() {
-    setScore(0);
+    setGameOver(true);
     console.log('Game over!');
-    startGame();
   }
 
   console.log(selections);
@@ -71,14 +91,18 @@ export default function App() {
       </header>
       <main>
         {/* Cards (one per pokemon in dataset) */}
-        {shuffleArray(dataset).map((data) => (
-          <Card key={data.id} data={data} handleSelection={handleSelection} />
-        ))}
+        {dataset.length > 0 &&
+          dataset.map((data) => (
+            <Card key={data.id} data={data} handleSelection={handleSelection} />
+          ))}
       </main>
       <footer>
         {/* MenuButton (sound) */}
         {/* MenuButton (help) */}
       </footer>
+      {gameOver && (
+        <GameOver score={score} numCards={numCards} startGame={startGame} />
+      )}
     </>
   );
 }
