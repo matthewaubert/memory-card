@@ -49,3 +49,8 @@ My app should include the following:
    - I will use <a href="https://pokeapi.co/">PokéApi</a>
    - Based on the documentation, I can make a fetch request to "https://pokeapi.co/api/v2/pokemon/{name or id}"
    - I can then make use of the `name`, `types`, and `sprites` properties in the resulting JSON object
+
+## Credits
+
+- International Pokémon logo: <a href="https://en.m.wikipedia.org/wiki/File:International_Pok%C3%A9mon_logo.svg">Wikipedia Commons</a>
+- Pokémon card background: <a href="https://www.deviantart.com/atomicmonkeytcg/art/Pokemon-Card-Backside-in-High-Resolution-633406210">AtomicmonkeyTCG on DeviantArt</a>

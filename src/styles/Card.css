@@ -1,15 +1,4 @@
 div.card {
-  background-color: #ddd;
-  border: 0.9rem solid gold;
-  border-radius: 12px;
-  cursor: pointer;
-  padding: 0.6rem;
-  aspect-ratio: 2.5 / 3.5;
-
-  display: grid;
-  place-content: center;
-  gap: 0.8rem;
-
   --bug: #d9f99d; /* lime 200 */
   --dragon: #a7f3d0; /* emerald 200 */
   --electric: #fef08a; /* yellow 200 */
@@ -26,14 +15,71 @@ div.card {
   --psychic: #fbcfe8; /* pink 200 */
   --rock: #e2e8f0; /* slate 200 */
   --water: #bae6fd; /* sky 200 */
+
+  cursor: pointer;
+  aspect-ratio: 2.5 / 3.5;
+  perspective: 1000px;
+  filter: drop-shadow(var(--shadow-1));
 }
 
-.card img {
+.card,
+.card-inner,
+.card-front,
+.card-back {
+  border-radius: 12px;
+}
+
+/* Container to position front and back sides */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 600ms;
+  transform-style: preserve-3d;
+}
+
+/* Flip horizontally on useEffect */
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position front and back sides */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #ddd;
+  border: 0.9rem solid gold;
+
+  display: grid;
+  place-content: center;
+  gap: 0.8rem;
+  padding: 0.6rem;
+  transform: rotateY(0deg);
+}
+
+.card-front img {
   width: 10rem;
 }
 
-.card .name {
+.card-front .name {
   font-weight: 600;
   font-size: 1.2rem;
   text-align: center;
+}
+
+.card-back {
+  background-image: url("../assets/pokemon-card-backside.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #192653;
+  border: 0.9rem solid #192653;
+  transform: rotateY(180deg);
 }

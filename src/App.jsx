@@ -9,6 +9,7 @@ import './App.css';
 
 const numCards = 12; // number of cards to display
 const pokemonNums = [1, 151]; // range of pokemon id nums to fetch (inclusive)
+const delay = 600; // delay in ms for setTimeouts
 
 export default function App() {
   const [dataset, setDataset] = useState([]);
@@ -54,7 +55,7 @@ export default function App() {
     // if player has selected all 12 cards: win
     if (score === numCards - 1) endGame();
     else {
-      shuffleCards();
+      setTimeout(shuffleCards, delay); // shuffle cards after flipping (to hide shuffle)
       setSelections([...selections, name]); // add name to selections
     }
   }
@@ -91,9 +92,15 @@ export default function App() {
       </header>
       <main>
         {/* Cards (one per pokemon in dataset) */}
-        {dataset.length > 0 &&
+        {dataset &&
           dataset.map((data) => (
-            <Card key={data.id} data={data} handleSelection={handleSelection} />
+            <Card
+              key={data.id}
+              data={data}
+              handleSelection={handleSelection}
+              gameOver={gameOver}
+              delay={delay}
+            />
           ))}
       </main>
       <footer>
