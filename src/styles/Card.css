@@ -20,6 +20,12 @@ div.card {
   aspect-ratio: 2.5 / 3.5;
   perspective: 1000px;
   filter: drop-shadow(var(--shadow-1));
+
+  /* outline is a little trick to anti-alias */
+  outline: 1px solid transparent;
+  transition: transform 600ms;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .card,
