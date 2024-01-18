@@ -12,7 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --transition: all .3s ease-in-out;
+  --transition: all 200ms ease-out;
 }
 
 * {

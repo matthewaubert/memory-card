@@ -23,39 +23,39 @@ div.card {
 
   /* outline is a little trick to anti-alias */
   outline: 1px solid transparent;
-  transition: transform 600ms;
   transform-style: preserve-3d;
-  will-change: transform;
 }
 
 .card,
 .card-inner,
 .card-front,
-.card-back {
+.card-back,
+.glare {
   border-radius: 12px;
 }
 
-/* Container to position front and back sides */
+/* container to position front and back sides */
 .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 600ms;
+  transition: all 600ms ease-out;
   transform-style: preserve-3d;
 }
 
-/* Flip horizontally on useEffect */
+/* flip horizontally on useEffect */
 .card.flip .card-inner {
   transform: rotateY(180deg);
 }
 
-/* Position front and back sides */
+/* position front and back sides */
 .card-front,
-.card-back {
+.card-back,
+.glare {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
+  -webkit-backface-visibility: hidden; /* safari */
   backface-visibility: hidden;
 }
 
@@ -88,4 +88,8 @@ div.card {
   background-color: #192653;
   border: 0.9rem solid #192653;
   transform: rotateY(180deg);
+}
+
+.glare {
+  opacity: 0;
 }
