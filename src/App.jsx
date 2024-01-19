@@ -82,42 +82,46 @@ export default function App() {
 
   console.log(selections);
 
-  // render only if there's pokemon data
-  if (dataset.length > 0)
-    return (
-      <>
-        {/* StartScreen (conditionally display) */}
-        <header>
-          <button className="logo">
-            <img src={pokemonLogo} alt="Pokemon logo" />
-          </button>
-          <Scoreboard score={score} hiScore={hiScore} />
-        </header>
-        <main>
-          {/* Cards (one per pokemon in dataset) */}
-          {dataset.map((data) => (
-            <Card
-              key={data.id}
-              data={data}
-              handleSelection={handleSelection}
-              gameOver={gameOver}
-              delay={delay}
-            />
-          ))}
-        </main>
-        <footer>
-          {/* MenuButton (sound) */}
-          <button className="footer-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <title>music</title>
-              <path d="M21,3V15.5A3.5,3.5 0 0,1 17.5,19A3.5,3.5 0 0,1 14,15.5A3.5,3.5 0 0,1 17.5,12C18.04,12 18.55,12.12 19,12.34V6.47L9,8.6V17.5A3.5,3.5 0 0,1 5.5,21A3.5,3.5 0 0,1 2,17.5A3.5,3.5 0 0,1 5.5,14C6.04,14 6.55,14.12 7,14.34V6L21,3Z" />
-            </svg>
-          </button>
-          <Help numGames={numGames} />
-        </footer>
-        {gameOver && (
-          <GameOver score={score} numCards={numCards} startGame={startGame} />
-        )}
-      </>
-    );
+  return (
+    <>
+      <div id="background"></div>
+      {/* StartScreen (conditionally display) */}
+      {/* render the rest only if there's pokemon data */}
+      {dataset.length > 0 && (
+        <>
+          <header>
+            <button className="logo">
+              <img src={pokemonLogo} alt="Pokemon logo" />
+            </button>
+            <Scoreboard score={score} hiScore={hiScore} />
+          </header>
+          <main>
+            {/* Cards (one per pokemon in dataset) */}
+            {dataset.map((data) => (
+              <Card
+                key={data.id}
+                data={data}
+                handleSelection={handleSelection}
+                gameOver={gameOver}
+                delay={delay}
+              />
+            ))}
+          </main>
+          <footer>
+            {/* MenuButton (sound) */}
+            <button className="footer-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>music</title>
+                <path d="M21,3V15.5A3.5,3.5 0 0,1 17.5,19A3.5,3.5 0 0,1 14,15.5A3.5,3.5 0 0,1 17.5,12C18.04,12 18.55,12.12 19,12.34V6.47L9,8.6V17.5A3.5,3.5 0 0,1 5.5,21A3.5,3.5 0 0,1 2,17.5A3.5,3.5 0 0,1 5.5,14C6.04,14 6.55,14.12 7,14.34V6L21,3Z" />
+              </svg>
+            </button>
+            <Help numGames={numGames} />
+          </footer>
+          {gameOver && (
+            <GameOver score={score} numCards={numCards} startGame={startGame} />
+          )}
+        </>
+      )}
+    </>
+  );
 }
