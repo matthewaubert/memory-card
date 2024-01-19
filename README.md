@@ -55,3 +55,4 @@ My app should include the following:
 - International Pokémon logo: <a href="https://en.m.wikipedia.org/wiki/File:International_Pok%C3%A9mon_logo.svg">Wikipedia Commons</a>
 - Pokémon card background: <a href="https://www.deviantart.com/atomicmonkeytcg/art/Pokemon-Card-Backside-in-High-Resolution-633406210">AtomicmonkeyTCG on DeviantArt</a>
 - Landscape background: <a href="https://www.deviantart.com/mizudokei/art/Twitch-Plays-Pokemon-440694759">Mizudokei on DeviantArt</a>
+- Background music: <a href="https://www.youtube.com/watch?v=m1vtEX64gmE&ab_channel=GlitchxCity">GlitchxCity</a>
