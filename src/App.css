@@ -19,3 +19,18 @@ main {
   gap: 1.2rem;
   margin: 1.2rem 0;
 }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-btn {
+  background-color: #ddd;
+  border-radius: 30px;
+  padding: 0.8rem;
+}
+
+footer svg {
+  width: 2rem;
+}
