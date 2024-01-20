@@ -18,6 +18,7 @@ div.card {
 
   cursor: pointer;
   aspect-ratio: 2.5 / 3.5;
+  width: 11.5rem;
   perspective: 1000px;
   filter: drop-shadow(var(--shadow-1));
 
