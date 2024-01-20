@@ -1,53 +1,15 @@
 #root {
-  --btn-size: 3.6rem;
+  --btn-size: 3.4rem;
+  --padding-width: 2.8rem;
 
   margin: auto;
-  padding: 2rem 4rem;
+  padding: 1.1rem var(--padding-width) 1.4rem;
   min-height: calc(100% - var(--btn-size));
 
   display: grid;
   justify-content: stretch;
   grid-template-rows: auto 1fr;
-  gap: 1.2rem;
-}
-
-header, footer {
-  display: flex;
-  justify-content: space-between;
-}
-
-button.logo {
-  background-color: transparent;
-}
-
-main {
-  max-width: 1280px;
-  place-self: center;
-
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-}
-
-footer {  
-  position: fixed;
-  bottom: 2rem;
-  left: 4rem;
-  right: 4rem;
-  pointer-events: none;
-}
-
-.footer-btn {
-  background-color: #ddd;
-  border-radius: 40px;
-  width: var(--btn-size);
-  height: var(--btn-size);
-  pointer-events: all;
-}
-
-footer svg {
-  width: 2rem;
+  gap: 1.4rem;
 }
 
 #background {
@@ -62,4 +24,95 @@ footer svg {
   left: 0;
   right: 0;
   z-index: -1;
+}
+
+/* header */
+header, footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+header {
+  align-items: flex-end;
+}
+
+button.logo {
+  background-color: transparent;
+  position: relative;
+  left: -7px;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.2));
+
+  display: grid;
+  place-content: center;
+}
+
+button.logo:hover {
+  transform: scale(1.07);
+}
+
+.logo img {
+  height: 80px;
+  position: relative;
+  left: -5px;
+  top: -5px;
+}
+
+.logo span {
+  font-family: "gill-sans-nova-condensed", system-ui, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: white;
+  line-height: 1;
+
+  background-image:
+    linear-gradient(#ef4444, #7f1d1d),
+    linear-gradient(#0284c7, #0c4a6e);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border: double 5px transparent;
+  border-radius: 6px;
+  box-shadow: inset 0 0 1px 2.5px #0c4a6e;
+  width: 185px;
+  padding: 4.75px 6px 6px;
+  justify-self: center;
+}
+
+/* main */
+main {
+  max-width: 1280px;
+  place-self: center;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+
+/* footer */
+footer {  
+  position: fixed;
+  bottom: 1.4rem;
+  left: var(--padding-width);
+  right: var(--padding-width);
+  pointer-events: none;
+}
+
+.footer-btn {
+  background-color: var(--border-color);
+  border-radius: 40px;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  pointer-events: all;
+  box-shadow: var(--shadow-2);
+
+  display: grid;
+  place-content: center;
+}
+
+.footer-btn:hover {
+  transform: scale(1.1);
+}
+
+footer svg {
+  width: 1.9rem;
+  fill: var(--gray-900);
 }

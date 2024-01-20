@@ -5,9 +5,9 @@ export default function GameOver({ score, numCards, startGame }) {
     <div className="overlay">
       <div className="game-over modal">
         <h2>
-          You got {score === numCards ? 'all' : `${score} / ${numCards}`} cards!
+          You got {score === numCards ? 'all' : `${score} / ${numCards}`} Pokémon!
         </h2>
-        <button onClick={startGame}>Play again</button>
+        <button onClick={startGame}>Play again!</button>
       </div>
     </div>
   );

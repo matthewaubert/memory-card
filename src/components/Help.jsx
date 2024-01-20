@@ -22,12 +22,16 @@ export default function Help({ numGames }) {
           <div className="help-menu modal">
             <h2>How to Play</h2>
             <p>
-              The goal of this memory card game is to click on as many cards as
-              possible without repeating any selections.
+              Professor Oak needs exactly one of each Pokémon to complete his
+              Pokédex.
             </p>
-            <p>See how good your memory is based on your score!</p>
+            <p>
+              Help him out by trying to catch &apos;em all without any
+              duplications!
+            </p>
+            <p>Click on the Pokémon logo if you&apos;d like to start over.</p>
             <button className="modal-btn" onClick={closeModal}>
-              Okay
+              Okay!
             </button>
           </div>
         </div>

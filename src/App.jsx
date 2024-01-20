@@ -88,9 +88,7 @@ export default function App() {
       <div id="background"></div>
       {/* StartScreen (conditionally display) */}
       <header>
-        <button className="logo">
-          <img src={pokemonLogo} alt="Pokemon logo" />
-        </button>
+        <LogoButton />
         <Scoreboard score={score} hiScore={hiScore} />
       </header>
       <main>
@@ -118,5 +116,14 @@ export default function App() {
         <GameOver score={score} numCards={numCards} startGame={startGame} />
       )}
     </>
+  );
+}
+
+function LogoButton() {
+  return (
+    <button className="logo" onClick={() => location.reload()}>
+      <img src={pokemonLogo} alt="Pokemon logo" />
+      <span>MEMORY CARD GAME</span>
+    </button>
   );
 }

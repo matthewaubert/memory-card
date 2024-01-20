@@ -1,8 +1,9 @@
 div.scoreboard {
-  background-color: #ddd;
+  background-color: var(--border-color);
   border-radius: 12px;
+  box-shadow: var(--shadow-2);
   
   display: grid;
   place-content: center;
-  padding: 0.8rem 1rem;
+  padding: 1rem 1.4rem 1.2rem;
 }
