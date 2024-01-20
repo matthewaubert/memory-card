@@ -48,7 +48,7 @@ class Pokemon {
   constructor({ id, name, types, sprites }) {
     this.id = id;
     this.name = Pokemon.#FormatName(name);
-    this.types = types.map((type) => type.type.name);
+    this.types = Pokemon.#FormatTypes(types);
     this.imageUrl = sprites.other['official-artwork'].front_default;
   }
 
@@ -56,7 +56,7 @@ class Pokemon {
   // output: name formatted for app
   static #FormatName(name) {
     const edgeCases = {
-      'farfetchd': 'Farfetch\'d',
+      farfetchd: "Farfetch'd",
       'mr-mime': 'Mr. Mime',
       'nidoran-f': 'Nidoran♀',
       'nidoran-m': 'Nidoran♂',
@@ -69,5 +69,13 @@ class Pokemon {
 
     // else: return title-cased name
     return name[0].toUpperCase() + name.slice(1);
+  }
+
+  static #FormatTypes(types) {
+    const edgeCases = ['steel'];
+    return types.reduce((accum, type) => {
+      if (!edgeCases.includes(type.type.name)) accum.push(type.type.name);
+      return accum;
+    }, []);
   }
 }
