@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import getBackground from '../card-background.js';
 import '../styles/Card.css';
 
 // React component for each card
@@ -119,7 +120,7 @@ export default function Card({
         <div
           className="card-front"
           // set backgroundColor to CSS variable name of first type
-          style={{ backgroundColor: `var(--${types[0]})` }}
+          style={{ background: getBackground(types) }}
         >
           <img src={imageUrl}></img>
           <h3 className="name">{name}</h3>
