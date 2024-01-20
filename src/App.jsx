@@ -122,8 +122,10 @@ export default function App() {
 function LogoButton() {
   return (
     <button className="logo" onClick={() => location.reload()}>
-      <img src={pokemonLogo} alt="Pokemon logo" />
-      <span>MEMORY CARD GAME</span>
+      <div className="logo-wrapper">
+        <img src={pokemonLogo} alt="Pokemon logo" />
+        <span>MEMORY CARD GAME</span>
+      </div>
     </button>
   );
 }

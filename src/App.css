@@ -50,6 +50,11 @@ button.logo:hover {
   transform: scale(1.07);
 }
 
+div.logo-wrapper {
+  display: grid;
+  place-content: center;
+}
+
 .logo img {
   height: 80px;
   position: relative;
@@ -58,7 +63,7 @@ button.logo:hover {
 }
 
 .logo span {
-  font-family: "gill-sans-nova-condensed", system-ui, Helvetica, Arial, sans-serif;
+  font-family: "gill-sans-nova-condensed", "Roboto Condensed", var(--font-stack);
   font-size: 18px;
   color: white;
   line-height: 1;
@@ -78,7 +83,7 @@ button.logo:hover {
 
 /* main */
 main {
-  max-width: 1280px;
+  max-width: 1200px;
   place-self: center;
 
   display: flex;

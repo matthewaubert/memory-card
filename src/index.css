@@ -1,9 +1,12 @@
 /* gill sans typeface */
 @import url("https://use.typekit.net/pfv7upp.css");
+/* roboto typeface */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
   color: var(--gray-950);
-  font-family: "gill-sans-nova", Helvetica, Arial, sans-serif;
+  --font-stack: "Helvetica", "Arial", sans-serif;
+  font-family: "gill-sans-nova", "Roboto", var(--font-stack);
   font-style: normal;
   line-height: 1.3;
   font-weight: 500;
@@ -57,4 +60,87 @@ h2 {
 
 ul {
   list-style-type: none;
+}
+
+@media (max-width: 500px) {
+  :root {
+    --card-border: 0.83rem solid var(--border-color);
+  }
+
+  #root {
+    --padding-width: 1.1rem;
+    padding-top: 0.9rem;
+  }
+
+  /* header */
+  button.logo {
+    width: 164px;
+    height: 89px;
+  }
+
+  div.logo-wrapper {
+    transform: scale(0.75);
+  }
+
+  button.logo {
+    left: -2px;
+  }
+
+  .logo img {
+    left: -4px;
+    top: -4px;
+  }
+
+  div.scoreboard {
+    padding: 0.7rem 1rem 0.9rem;
+  }
+
+  div.scoreboard h2 {
+    font-size: 1.2rem;
+  }
+
+  /* main */
+  main {
+    gap: 1.1rem;
+  }
+
+  div.card {
+    width: 10rem;
+  }
+
+  .card img {
+    width: 8.2rem;
+  }
+
+  .card-front .name {
+    font-size: 1.1rem;
+  }
+
+  /* footer */
+  footer {
+    bottom: 1.1rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  :root {
+    --card-border: 1rem solid var(--border-color);
+  }
+
+  main {
+    max-width: 1410px;
+    gap: 1.72rem;
+  }
+
+  div.card {
+    width: 13.25rem;
+  }
+
+  .card img {
+    width: 11.01rem;
+  }
+
+  .card-front .name {
+    font-size: 1.34rem;
+  }
 }
