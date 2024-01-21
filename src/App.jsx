@@ -32,7 +32,7 @@ export default function App() {
     })();
   }, [numGames]);
 
-  // reset dataset, selections, score, GameOver;
+  // reset dataset, selections, score, gameOver;
   // trigger fetch new pokemon data
   function startGame() {
     setDataset([]);
@@ -86,7 +86,7 @@ export default function App() {
   return (
     <>
       <div id="background"></div>
-      {/* StartScreen (conditionally display) */}
+      {/* StartScreen? (conditionally display) */}
       <header>
         <LogoButton />
         <Scoreboard score={score} hiScore={hiScore} />

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/modal.css';
 
+// React component for help button that displays help modal menu when clicked
 export default function Help({ numGames }) {
   // initially display Help modal only if it's the first game
   const [displayHelp, setDisplayHelp] = useState(numGames === 0);
@@ -26,8 +27,8 @@ export default function Help({ numGames }) {
               Pokédex.
             </p>
             <p>
-              Help him catch &apos;em all by clicking on each Pokémon card without any
-              duplications!
+              Help him catch &apos;em all by clicking on each Pokémon card
+              without any duplications!
             </p>
             <p>Click on the Pokémon logo if you&apos;d like to start over.</p>
             <button className="modal-btn" onClick={closeModal}>

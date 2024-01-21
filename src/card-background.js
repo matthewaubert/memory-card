@@ -1,3 +1,4 @@
+// hash table of pokemon types to their associated color
 const typeToColor = {
   bug: 'lime',
   dragon: 'purple',
@@ -17,6 +18,7 @@ const typeToColor = {
   water: 'sky',
 };
 
+// scheme of lite, med, dark for each color group
 const colorSchemes = {
   lime: {
     dark: '#3f6212',
@@ -95,6 +97,11 @@ const colorSchemes = {
   },
 };
 
+// Based on given array of pokemon types (e.g. ['ice', 'flying']), return CSS background gradient
+// e.g. 'linear-gradient(217deg, #164e63, transparent 71%),
+//   linear-gradient(127deg, #06b6d4, transparent 71%),
+//   linear-gradient(336deg, #a5b4fc, transparent 71%),
+//   #06b6d4'
 export default function getBackground(types) {
   const colorScheme1 = colorSchemes[typeToColor[types[0]]];
   const colors = {

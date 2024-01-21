@@ -13,12 +13,11 @@ export default function Card({
   const cardRef = useRef(null); // ref '.card' div
   const glareRef = useRef(null); // ref '.glare' div
 
-  // on re-render: flip card, wait delay ms, flip card again
+  // on re-render: flip card, wait {delay} ms, flip card again
   useEffect(() => {
     function flipCard() {
       if (cardRef.current && !gameOver) {
         cardRef.current.classList.toggle('flip');
-        console.log('flipped!');
       }
     }
     flipCard();
@@ -27,10 +26,9 @@ export default function Card({
 
   function handleMouseOver() {
     addWillChange(); // hint to browser to optimize changes
-    // console.log('mouseover');
   }
 
-  // change Card's transform value based on mouse position,
+  // change Card's CSS transform value based on mouse position,
   // causing it to 3d rotate to pull toward mouse
   function handleMouseMove(e) {
     requestAnimationFrame(() => {
@@ -42,18 +40,13 @@ export default function Card({
       );
 
       // set glare background and opacity
-      const glare = getGlare(
-        e.clientX,
-        e.clientY,
-        glareRef.current,
-      );
+      const glare = getGlare(e.clientX, e.clientY, glareRef.current);
       glareRef.current.style.background = glare.background;
       glareRef.current.style.opacity = glare.opacity;
-      // console.log('mousemove');
     });
   }
 
-  // based on given x & y mouse coords and element, calc and return transform value
+  // based on given x & y mouse coords and element, calc and return CSS transform value
   // e.g. 'perspective(1000px) rotateX(-40.7617deg) rotateY(-33.0273deg)'
   function getTransforms(mouseX, mouseY, el) {
     const constraint = 6; // constrain rotation by this factor
@@ -66,7 +59,7 @@ export default function Card({
   }
 
   // based on given x & y mouse coords and element,
-  // calc and return obj containing glare background and opacity
+  // calc and return obj containing CSS glare background and opacity
   // e.g. {
   //   background: radial-gradient(circle at 119.406px 225px, #fffa 40px, #0000),
   //   opacity: 0.867583,
@@ -85,13 +78,12 @@ export default function Card({
     };
   }
 
-  // reset Card transform value to 0deg (default)
+  // reset Card CSS transform value to 0deg (default)
   function handleMouseLeave() {
     setTimeout(() => {
       cardRef.current.style.transform = 'rotate(0deg)';
       glareRef.current.style.opacity = 0;
       removeWillChange(); // remove optimization
-      // console.log('mouseleave');
     }, 10);
   }
 

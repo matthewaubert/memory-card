@@ -1,5 +1,6 @@
 import '../styles/modal.css';
 
+// React component for game over modal menu
 export default function GameOver({ score, numCards, startGame }) {
   return (
     <div className="overlay">

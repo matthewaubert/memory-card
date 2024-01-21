@@ -53,7 +53,7 @@ class Pokemon {
   }
 
   // input: name from api data
-  // output: name formatted for app
+  // output: name formatted for app (e.g. 'Articuno')
   static #FormatName(name) {
     const edgeCases = {
       farfetchd: "Farfetch'd",
@@ -71,6 +71,8 @@ class Pokemon {
     return name[0].toUpperCase() + name.slice(1);
   }
 
+  // input: types from api data
+  // output: array of types formatted and filtered for app (e.g. ['ice', 'flying'])
   static #FormatTypes(types) {
     const edgeCases = ['steel'];
     return types.reduce((accum, type) => {
