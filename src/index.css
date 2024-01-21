@@ -51,6 +51,7 @@ button {
   cursor: pointer;
   border: none;
   color: inherit;
+  font-family: inherit;
   font-weight: 600;
 }
 
@@ -99,6 +100,11 @@ ul {
     font-size: 1.2rem;
   }
 
+  /* footer */
+  footer {
+    bottom: 1.1rem;
+  }
+  
   /* main */
   main {
     gap: 1.1rem;
@@ -114,11 +120,6 @@ ul {
 
   .card-front .name {
     font-size: 1.1rem;
-  }
-
-  /* footer */
-  footer {
-    bottom: 1.1rem;
   }
 }
 

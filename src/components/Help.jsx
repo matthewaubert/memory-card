@@ -26,7 +26,7 @@ export default function Help({ numGames }) {
               Pokédex.
             </p>
             <p>
-              Help him out by trying to catch &apos;em all without any
+              Help him catch &apos;em all by clicking on each Pokémon card without any
               duplications!
             </p>
             <p>Click on the Pokémon logo if you&apos;d like to start over.</p>

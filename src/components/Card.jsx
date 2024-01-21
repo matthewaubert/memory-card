@@ -117,14 +117,14 @@ export default function Card({
       onMouseLeave={handleMouseLeave}
     >
       <div className="card-inner">
-        <div
+        <button
           className="card-front"
           // set backgroundColor to CSS variable name of first type
           style={{ background: getBackground(types) }}
         >
-          <img src={imageUrl}></img>
+          <img src={imageUrl} alt=""></img>
           <h3 className="name">{name}</h3>
-        </div>
+        </button>
         <div className="card-back"></div>
         <div ref={glareRef} className="glare"></div>
       </div>

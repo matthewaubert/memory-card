@@ -91,6 +91,10 @@ export default function App() {
         <LogoButton />
         <Scoreboard score={score} hiScore={hiScore} />
       </header>
+      <footer>
+        <Music />
+        <Help numGames={numGames} />
+      </footer>
       <main>
         {/* render cards only if there's pokemon data */}
         {dataset.length > 0 && (
@@ -108,10 +112,6 @@ export default function App() {
           </>
         )}
       </main>
-      <footer>
-        <Music />
-        <Help numGames={numGames} />
-      </footer>
       {gameOver && (
         <GameOver score={score} numCards={numCards} startGame={startGame} />
       )}
@@ -123,7 +123,7 @@ function LogoButton() {
   return (
     <button className="logo" onClick={() => location.reload()}>
       <div className="logo-wrapper">
-        <img src={pokemonLogo} alt="Pokemon logo" />
+        <img src={pokemonLogo} alt="Pokémon logo" />
         <span>MEMORY CARD GAME</span>
       </div>
     </button>
