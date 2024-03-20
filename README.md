@@ -2,7 +2,7 @@
 
 **[Click here to view the live site!](https://memory-card-ma.pages.dev/)**
 
-[![screenshot of homepage](docs/homepage.png)](https://memory-card-ma.pages.dev/ "screenshot of homepage")
+[![screenshot of home page](docs/homepage.png)](https://memory-card-ma.pages.dev/ "home page")
 
 ## How to Play
 
@@ -23,7 +23,17 @@ This project was built as part of [The Odin Project: React course](https://www.t
 
 I additionally decided to have even more fun with side effects and add some lively animations to the cards (using JavaScript and CSS in tandem), as shown in the video above. I has quite happy with the results. See the code at `src/components/Card.jsx`!
 
-Read on for more on my approach to this project.
+## Technologies Used
+
+### Languages
+- JavaScript
+- CSS
+- HTML
+
+### Libraries and Tools
+- React
+- Vite - for project scaffolding and development
+- Git (obviously)
 
 ## Understanding the Problem
 
