@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import getBackground from '../card-background.js';
+import getBackground from '../utils/card-background.js';
 import '../styles/Card.css';
 
 // React component for each card

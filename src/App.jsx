@@ -4,8 +4,8 @@ import Card from './components/Card.jsx';
 import GameOver from './components/GameOver.jsx';
 import Music from './components/Music.jsx';
 import Help from './components/Help.jsx';
-import getPokemonDataset from './pokemon-data.js';
-import { getRandInts, shuffleArray } from './util.js';
+import getPokemonDataset from './utils/pokemon-data.js';
+import { getRandInts, shuffleArray } from './utils/util.js';
 import pokemonLogo from './assets/pokemon-logo.svg';
 import './App.css';
 
